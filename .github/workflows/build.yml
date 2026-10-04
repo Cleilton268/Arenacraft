@@ -1,10 +1,6 @@
 name: Build APK
 on:
   workflow_dispatch:
-    inputs:
-      link:
-        description: 'Cole aqui o link do ngrok (https://...)'
-        required: true
 
 jobs:
   build:
@@ -17,7 +13,7 @@ jobs:
 
       - name: Colocar o link do jogo
         env:
-          LINK: ${{ inputs.link }}
+          LINK: https://sharply-skimming-reliance.ngrok-free.dev
         run: sed -i "s|https://COLOQUE-SEU-LINK.ngrok-free.dev|$LINK|" proj/app/src/main/res/values/strings.xml
 
       - uses: actions/setup-java@v4
